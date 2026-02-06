@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 12: JS Arrays & Dynamic Pages</title>
+<style>
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+h1,h2,h3{color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+button {padding:5px 10px; margin-top:5px;}
+</style>
+</head>
+<body>
+
+<h1>Week 12: JS Arrays & Dynamic Pages</h1>
+<p>This week introduces **arrays and dynamic page updates**, allowing multiple values to be stored, iterated, and displayed on your page.</p>
+
+<!-- Day 1 -->
+<section>
+<details open>
+<summary>Day 1: Creating Arrays</summary>
+<p><strong>Learn:</strong> Arrays store multiple values. <strong>See:</strong><br>
+<pre>
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits);
+</pre>
+<strong>Do:</strong> Create an array with your top 5 favorite foods. <strong>Check:</strong> Console logs all items correctly.</p>
+</details>
+</section>
+
+<!-- Day 2 -->
+<section>
+<details>
+<summary>Day 2: Accessing & Modifying Arrays</summary>
+<p><strong>Learn:</strong> Access items by index, modify values. <strong>See:</strong><br>
+<pre>
+console.log(fruits[1]); // banana
+fruits[0] = "mango";
+</pre>
+<strong>Do:</strong> Change the first item in your array and log it. <strong>Check:</strong> Browser console shows updated value.</p>
+</details>
+</section>
+
+<!-- Day 3 -->
+<section>
+<details>
+<summary>Day 3: Array Methods (push, pop, shift, unshift)</summary>
+<p><strong>Learn:</strong> Add/remove elements easily. <strong>See:</strong><br>
+<pre>
+fruits.push("grape"); // add end
+fruits.pop(); // remove end
+fruits.unshift("kiwi"); // add start
+fruits.shift(); // remove start
+</pre>
+<strong>Do:</strong> Manipulate your array and log changes each time. <strong>Check:</strong> Console reflects modifications.</p>
+</details>
+</section>
+
+<!-- Day 4 -->
+<section>
+<details>
+<summary>Day 4: Looping Through Arrays</summary>
+<p><strong>Learn:</strong> Use loops to process array items. <strong>See:</strong><br>
+<pre>
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+</pre>
+<strong>Do:</strong> Log all items of your array with a message like "I like ___". <strong>Check:</strong> Browser console shows correct output.</p>
+</details>
+</section>
+
+<!-- Day 5 -->
+<section>
+<details>
+<summary>Day 5: Display Array Items on Page</summary>
+<p><strong>Learn:</strong> Use DOM to display array content dynamically. <strong>See:</strong><br>
+<pre>
+let list = document.getElementById("myList");
+fruits.forEach(function(fruit) {
+  list.innerHTML += "&lt;li&gt;" + fruit + "&lt;/li&gt;";
+});
+</pre>
+<strong>Do:</strong> Create &lt;ul id="myList"&gt;&lt;/ul&gt; and dynamically add array items. <strong>Check:</strong> Browser shows list of items.</p>
+</details>
+</section>
+
+<!-- Day 6 -->
+<section>
+<details>
+<summary>Day 6: Interactive Array Updates</summary>
+<p><strong>Learn:</strong> Use input fields to add array items. <strong>See:</strong><br>
+<pre>
+&lt;input id="fruitInput"&gt;
+&lt;button onclick="addFruit()"&gt;Add&lt;/button&gt;
+
+&lt;script&gt;
+let fruits = [];
+function addFruit() {
+  let val = document.getElementById("fruitInput").value;
+  fruits.push(val);
+  console.log(fruits);
+}
+&lt;/script&gt;
+</pre>
+<strong>Do:</strong> Create input and button to add items to your array dynamically. <strong>Check:</strong> Browser console shows updated array.</p>
+</details>
+</section>
+
+<!-- Day 7 -->
+<section>
+<details>
+<summary>Day 7: Review & Mini Dynamic Page</summary>
+<p><strong>Learn:</strong> Combine arrays, loops, and DOM updates. <strong>Do:</strong> Build a simple dynamic shopping list: enter items, click "Add", and see them appear on the page. <strong>Check:</strong> Browser updates correctly. This completes Week 12.</p>
+</details>
+</section>
+
+</body>
+</html>
