@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 2: HTML Intermediate</title>
-
 <style>
 /* =====================
    FULL WIDTH LAYOUT
@@ -17,6 +16,7 @@ html, body {
   line-height: 1.6;
   background: #f5f5f5;
   color: #333;
+  overflow-x: hidden;
 }
 
 /* =====================
@@ -82,28 +82,51 @@ pre, code {
   border-radius: 6px;
   overflow-x: auto;
 }
+
+.tip {
+  background: #e8f4ff;
+  padding: 10px;
+  border-left: 4px solid #1e90ff;
+  margin-top: 10px;
+}
 </style>
 </head>
-
 <body>
 
 <main>
 <h1>Week 2: HTML Intermediate</h1>
-<p>Welcome to Week 2! This week we focus on semantic structure, grouping elements, colors, lists with links/images, tables, and basic forms. Each day uses the “Learn → See → Do → Check” method and should take about 30 minutes.</p>
+<p>Welcome to Week 2! This week we build on your basic HTML skills and focus on **semantic structure, grouping elements, styling with colors, lists with links/images, tables, and forms**. Each day uses the “Learn → See → Do → Check” method and is designed to take about 30–40 minutes.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Semantic HTML & Sections</summary>
-<p><strong>Learn:</strong> Semantic HTML uses tags that give meaning to content, like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;article&gt;</code>.</p>
-<pre>&lt;header&gt;&lt;h1&gt;My Website&lt;/h1&gt;&lt;/header&gt;
+<p><strong>Learn:</strong> Semantic HTML tags give meaning to your content. Using them improves accessibility, SEO, and readability. Common tags include:</p>
+<ul>
+<li><code>&lt;header&gt;</code> – The top section of your page, usually with a title or navigation</li>
+<li><code>&lt;footer&gt;</code> – The bottom section, for copyright, contact info, or links</li>
+<li><code>&lt;main&gt;</code> – Contains the main content of your page</li>
+<li><code>&lt;section&gt;</code> – Groups related content</li>
+<li><code>&lt;article&gt;</code> – Represents a self-contained piece of content like a blog post</li>
+</ul>
+<p><strong>See:</strong></p>
+<pre>
+&lt;header&gt;
+  &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
 &lt;main&gt;
-  &lt;section&gt;&lt;h2&gt;About Me&lt;/h2&gt;&lt;p&gt;Content here.&lt;/p&gt;&lt;/section&gt;
+  &lt;section&gt;
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    &lt;p&gt;I am learning HTML and building web pages.&lt;/p&gt;
+  &lt;/section&gt;
 &lt;/main&gt;
-&lt;footer&gt;&lt;p&gt;Copyright 2026&lt;/p&gt;&lt;/footer&gt;
+&lt;footer&gt;
+  &lt;p&gt;Copyright 2026&lt;/p&gt;
+&lt;/footer&gt;
 </pre>
-<p><strong>Do:</strong> Reorganize your Week 1 profile using <code>&lt;header&gt;</code> for your name, <code>&lt;main&gt;</code> for content, and <code>&lt;section&gt;</code> for About Me and Hobbies.</p>
-<p><strong>Check:</strong> Open in a browser to verify structure and readability.</p>
+<p><strong>Do:</strong> Reorganize your Week 1 profile page. Use <code>&lt;header&gt;</code> for your name, <code>&lt;main&gt;</code> for content, and <code>&lt;section&gt;</code> for each major part like About Me, Hobbies, or Contact.</p>
+<p><strong>Check:</strong> Open in a browser and verify that your page sections are clearly separated, and headings are easy to read. Try resizing the window to see how the layout behaves.</p>
+<div class="tip"><strong>Tip:</strong> Using semantic tags is better than generic <code>&lt;div&gt;</code> because it helps screen readers and search engines understand your content.</div>
 </details>
 </section>
 
@@ -111,12 +134,23 @@ pre, code {
 <section>
 <details>
 <summary>Day 2: Divs & Spans</summary>
-<p><strong>Learn:</strong> <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are non-semantic containers for styling or scripting; <code>&lt;div&gt;</code> is block-level, <code>&lt;span&gt;</code> is inline.</p>
-<pre>&lt;div class="bio"&gt;&lt;p&gt;This is a paragraph&lt;/p&gt;&lt;/div&gt;
-&lt;p&gt;I like &lt;span style="color:red;"&gt;coding&lt;/span&gt;!&lt;/p&gt;
+<p><strong>Learn:</strong> <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are non-semantic containers. Use <code>&lt;div&gt;</code> for block-level grouping (full width) and <code>&lt;span&gt;</code> for inline grouping (inside text). They are essential for styling or scripting content.</p>
+<p><strong>See:</strong></p>
+<pre>
+&lt;div class="bio"&gt;
+  &lt;p&gt;I enjoy coding and reading.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I like &lt;span style="color:red;"&gt;JavaScript&lt;/span&gt; for web development!&lt;/p&gt;
 </pre>
-<p><strong>Do:</strong> Wrap your paragraphs in <code>&lt;div&gt;</code> and highlight a word with <code>&lt;span&gt;</code> in a different color.</p>
-<p><strong>Check:</strong> Open in a browser to verify grouping and inline styles.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Wrap each paragraph on your profile page inside a <code>&lt;div&gt;</code>.</li>
+<li>Highlight a word or phrase using <code>&lt;span&gt;</code> and apply a different color or style.</li>
+<li>Try nesting a <code>&lt;span&gt;</code> inside another <code>&lt;span&gt;</code> with a different style.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser and confirm that your colored text appears correctly and paragraphs are grouped visually.</p>
+<div class="tip"><strong>Tip:</strong> Use descriptive class names for your <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> elements so you can easily style them later.</div>
 </details>
 </section>
 
@@ -124,9 +158,19 @@ pre, code {
 <section>
 <details>
 <summary>Day 3: Colors & Backgrounds</summary>
-<p><strong>Learn:</strong> Inline styles can change text color and backgrounds, e.g., <code>&lt;p style="color:blue;"&gt;Blue text&lt;/p&gt;</code> or <code>&lt;div style="background-color:#f0f0f0;"&gt;Section&lt;/div&gt;</code>.</p>
-<p><strong>Do:</strong> Change text colors, section backgrounds, and highlight areas of your profile page.</p>
-<p><strong>Check:</strong> Open in a browser to see how colors affect readability and appeal.</p>
+<p><strong>Learn:</strong> HTML elements can be styled inline with the <code>style</code> attribute. You can change text colors, backgrounds, and borders:</p>
+<pre>
+&lt;p style="color:blue;"&gt;This text is blue&lt;/p&gt;
+&lt;div style="background-color:#f0f0f0; padding:10px;"&gt;Light gray section&lt;/div&gt;
+</pre>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Change the text color of headings to make them more visible.</li>
+<li>Apply background colors to each section to differentiate content areas.</li>
+<li>Experiment with contrasting colors for text and background to improve readability.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser. Ensure that text is readable and sections are visually distinct. Adjust colors if needed for clarity.</p>
+<div class="tip"><strong>Tip:</strong> Use web-safe colors or HEX codes to ensure colors appear consistently across browsers.</div>
 </details>
 </section>
 
@@ -134,15 +178,21 @@ pre, code {
 <section>
 <details>
 <summary>Day 4: Lists with Links & Images</summary>
-<p><strong>Learn:</strong> Lists can include links and images:</p>
+<p><strong>Learn:</strong> Lists can contain links and images. Use <code>&lt;ul&gt;</code> for unordered lists and <code>&lt;ol&gt;</code> for ordered lists. Each list item uses <code>&lt;li&gt;</code> and can include any inline content.</p>
 <pre>
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://example.com"&gt;My Site&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;img src="icon.png" alt="Icon"&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://example.com"&gt;Example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="icon.png" alt="Icon"&gt; Coding&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-<p><strong>Do:</strong> Update your hobbies list to add a small image or icon for each hobby and make one item link to an external site.</p>
-<p><strong>Check:</strong> Open in a browser to verify images and links display correctly.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Add a small image next to each hobby in your hobbies list.</li>
+<li>Make one item link to an external website related to your hobby.</li>
+<li>Try nesting a sub-list inside one of your hobbies for more detail.</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser to verify that images display correctly, links work, and nested lists appear properly.</p>
+<div class="tip"><strong>Tip:</strong> Always include <code>alt</code> text for images for accessibility.</div>
 </details>
 </section>
 
@@ -150,15 +200,17 @@ pre, code {
 <section>
 <details>
 <summary>Day 5: Tables</summary>
-<p><strong>Learn:</strong> Tables organize data with <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> for rows, <code>&lt;th&gt;</code> for headers, <code>&lt;td&gt;</code> for cells.</p>
+<p><strong>Learn:</strong> Tables organize data into rows and columns. Use <code>&lt;table&gt;</code> for the table, <code>&lt;tr&gt;</code> for rows, <code>&lt;th&gt;</code> for headers, and <code>&lt;td&gt;</code> for cells.</p>
 <pre>
-&lt;table&gt;
+&lt;table border="1"&gt;
   &lt;tr&gt;&lt;th&gt;Day&lt;/th&gt;&lt;th&gt;Task&lt;/th&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;Monday&lt;/td&gt;&lt;td&gt;Code&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Tuesday&lt;/td&gt;&lt;td&gt;Study&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-<p><strong>Do:</strong> Create a table of your weekly routine with at least three rows.</p>
-<p><strong>Check:</strong> Open in a browser and confirm the table displays correctly with proper alignment.</p>
+<p><strong>Do:</strong> Create a table for your weekly schedule with at least 4 rows and 2 columns.</p>
+<p><strong>Check:</strong> Open in a browser and ensure the table aligns correctly, borders are visible, and text is readable.</p>
+<div class="tip"><strong>Tip:</strong> Always use <code>&lt;th&gt;</code> for headers to improve accessibility and readability.</div>
 </details>
 </section>
 
@@ -166,16 +218,18 @@ pre, code {
 <section>
 <details>
 <summary>Day 6: Forms (Basic Inputs)</summary>
-<p><strong>Learn:</strong> Forms collect input using <code>&lt;form&gt;</code> with <code>&lt;input&gt;</code> and <code>&lt;textarea&gt;</code>.</p>
+<p><strong>Learn:</strong> Forms collect user input. Use <code>&lt;form&gt;</code> with <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;button&gt;</code>. Labels improve accessibility.</p>
 <pre>
 &lt;form&gt;
   &lt;label&gt;Name:&lt;/label&gt;&lt;input type="text" placeholder="Your Name"&gt;
+  &lt;label&gt;Email:&lt;/label&gt;&lt;input type="email" placeholder="Your Email"&gt;
   &lt;label&gt;Message:&lt;/label&gt;&lt;textarea placeholder="Type here"&gt;&lt;/textarea&gt;
-  &lt;input type="submit"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 </pre>
-<p><strong>Do:</strong> Add a contact form with Name, Email, and Message fields plus a submit button.</p>
-<p><strong>Check:</strong> Open in a browser to ensure fields are interactive.</p>
+<p><strong>Do:</strong> Add a contact form with Name, Email, and Message fields plus a submit button. Style labels and inputs for clarity.</p>
+<p><strong>Check:</strong> Open in a browser to ensure fields can be typed into and submit button appears clickable.</p>
+<div class="tip"><strong>Tip:</strong> Always associate labels with inputs using the <code>for</code> attribute for accessibility.</div>
 </details>
 </section>
 
@@ -183,9 +237,18 @@ pre, code {
 <section>
 <details>
 <summary>Day 7: Review & Mini Intermediate Page</summary>
-<p><strong>Learn:</strong> Combine all skills from Week 2 to enhance your Week 1 profile page.</p>
-<p><strong>Do:</strong> Use <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;div&gt;</code>, colors, lists with links/images, a table, and a simple contact form.</p>
-<p><strong>Check:</strong> Open in a browser to ensure layout is logical, colors are readable, links work, images display, table aligns, and form inputs are interactive.</p>
+<p><strong>Learn:</strong> Combine all Week 2 skills to enhance your Week 1 profile page.</p>
+<p><strong>Do:</strong> Your enhanced page should include:</p>
+<ul>
+<li>Semantic structure: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></li>
+<li>Grouped paragraphs with <code>&lt;div&gt;</code> and styled <code>&lt;span&gt;</code></li>
+<li>Colors and backgrounds for sections</li>
+<li>Lists with images and links</li>
+<li>A table showing your weekly routine</li>
+<li>A contact form with labels, inputs, and submit button</li>
+</ul>
+<p><strong>Check:</strong> Open in a browser and ensure layout, readability, links, images, table, and form inputs all work correctly. Make adjustments to spacing, colors, or headings as needed.</p>
+<div class="tip"><strong>Tip:</strong> Review your code for clean indentation and proper use of semantic tags.</div>
 </details>
 </section>
 
