@@ -5,77 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 14: JS DOM Events & Forms – Part 2</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  line-height: 1.6;
-  background: #f5f5f5;
-  color: #333;
-  user-select: none; /* prevent text selection */
+body { 
+  font-family: Arial, sans-serif; 
+  margin:20px; 
+  line-height:1.6; 
+  background:#f5f5f5; 
+  color:#333;
+
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
-h1,h2,h3{color:#1e90ff;}
-section {
-  background:#fff;
-  padding:20px;
-  border-radius:8px;
-  margin-bottom:20px;
-  box-shadow:0 0 8px rgba(0,0,0,0.1);
-}
+h1,h2,h3 {color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
 details {margin-top:10px;margin-bottom:10px;}
-summary {
-  cursor:pointer;
-  font-weight:bold;
-  padding:10px;
-  border-radius:4px;
-  background:#eee;
-  font-size:1.1em;
-}
-pre, code {
-  background:#eee;
-  padding:10px;
-  border-radius:6px;
-  overflow-x:auto;
-  user-select: none; /* prevent code selection */
-}
-input, button {padding:5px 8px; margin-top:5px;}
-.tip {
-  background:#e8f4ff;
-  padding:10px;
-  border-left:4px solid #1e90ff;
-  margin-top:10px;
-}
-.active {background:#1e90ff;color:white;padding:5px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+input, button {padding:5px 8px; margin-top:5px; user-select: auto !important;}
+.tip {background:#e8f4ff;padding:10px;border-left:4px solid #1e90ff;margin-top:10px;}
 </style>
 </head>
-<body oncontextmenu="return false;"> <!-- disable right-click -->
+<body>
 
 <h1>Week 14: JS DOM Events & Forms – Part 2</h1>
-<p>This week extends DOM events and forms into <strong>interactive, dynamic page features</strong> including lists, adding/removing items, toggling classes, and live previews.</p>
+<p>This week extends DOM events and forms into **interactive, dynamic page features**, including lists, adding/removing items, and live updates.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Dynamic List Addition</summary>
 <p><strong>Learn:</strong> Add items to a list dynamically using inputs and buttons.</p>
-<p><strong>Do:</strong> Type an item in the input box and click "Add".</p>
-<input id="itemInput" placeholder="Add item">
-<button id="addBtn">Add</button>
-<ul id="list"></ul>
-
-<script>
-const addBtn = document.getElementById("addBtn");
-const list = document.getElementById("list");
-addBtn.addEventListener("click", function(){
-  const val = document.getElementById("itemInput").value;
-  if(val){
-    const li = document.createElement("li");
-    li.innerText = val;
-    list.appendChild(li);
-    document.getElementById("itemInput").value = "";
-  }
-});
-</script>
-<div class="tip"><strong>Tip:</strong> Use <code>createElement</code> and <code>appendChild</code> instead of innerHTML to prevent overwriting existing items.</div>
+<pre>
+&lt;input id="itemInput"&gt;
+&lt;button onclick="addItem()"&gt;Add&lt;/button&gt;
+&lt;ul id="list"&gt;&lt;/ul&gt;
+&lt;script&gt;
+function addItem() {
+  let val = document.getElementById("itemInput").value;
+  if(val) document.getElementById("list").innerHTML += "&lt;li&gt;" + val + "&lt;/li&gt;";
+}
+&lt;/script&gt;
+</pre>
+<p><strong>Do:</strong> Add a task to your list using input field. <strong>Check:</strong> Browser shows item in list.</p>
 </details>
 </section>
 
@@ -83,16 +59,15 @@ addBtn.addEventListener("click", function(){
 <section>
 <details>
 <summary>Day 2: Removing List Items</summary>
-<p><strong>Learn:</strong> Remove items dynamically using JS.</p>
-<p><strong>Do:</strong> Click "Remove Last" to delete the last item from your list.</p>
-<button id="removeBtn">Remove Last</button>
-
-<script>
-document.getElementById("removeBtn").addEventListener("click", function(){
-  if(list.lastChild) list.removeChild(list.lastChild);
-});
-</script>
-<div class="tip"><strong>Tip:</strong> Check if <code>lastChild</code> exists before removing to avoid errors.</div>
+<p><strong>Learn:</strong> Remove items from the DOM using JS.</p>
+<pre>
+function removeLast() {
+  let list = document.getElementById("list");
+  list.removeChild(list.lastElementChild);
+}
+&lt;button onclick="removeLast()"&gt;Remove Last&lt;/button&gt;
+</pre>
+<p><strong>Do:</strong> Add and remove items dynamically. <strong>Check:</strong> Browser updates list correctly.</p>
 </details>
 </section>
 
@@ -100,35 +75,33 @@ document.getElementById("removeBtn").addEventListener("click", function(){
 <section>
 <details>
 <summary>Day 3: Toggling Classes</summary>
-<p><strong>Learn:</strong> Toggle CSS classes on elements to change appearance dynamically.</p>
-<p><strong>Do:</strong> Click the box to activate/deactivate styling.</p>
-<div id="box" style="width:100px;height:50px;border:1px solid #000; text-align:center; line-height:50px;">Click me</div>
-
-<script>
-const box = document.getElementById("box");
-box.addEventListener("click", function(){
+<p><strong>Learn:</strong> Toggle CSS classes on events for styling changes.</p>
+<pre>
+&lt;div id="box"&gt;Click me&lt;/div&gt;
+&lt;script&gt;
+document.getElementById("box").addEventListener("click", function() {
   this.classList.toggle("active");
 });
-</script>
-<div class="tip"><strong>Tip:</strong> Toggling classes is useful for active states, highlighting, and interactive effects.</div>
+&lt;/script&gt;
+</pre>
+<p><strong>Do:</strong> Create a div that changes style when clicked. <strong>Check:</strong> Browser toggles CSS class correctly.</p>
 </details>
 </section>
 
 <!-- Day 4 -->
 <section>
 <details>
-<summary>Day 4: Live Input Preview</summary>
-<p><strong>Learn:</strong> Show input content live on the page as users type.</p>
-<p><strong>Do:</strong> Type in the username input and watch the preview update instantly.</p>
-<input id="nameInput" placeholder="Type your username">
-<p id="preview"></p>
-
-<script>
-document.getElementById("nameInput").addEventListener("input", function(){
+<summary>Day 4: Form Input Live Preview</summary>
+<p><strong>Learn:</strong> Show live updates from inputs to page elements.</p>
+<pre>
+&lt;input id="name"&gt;&lt;p id="preview"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("name").addEventListener("input", function() {
   document.getElementById("preview").innerText = this.value;
 });
-</script>
-<div class="tip"><strong>Tip:</strong> Use <code>input</code> event for real-time updates, <code>change</code> for after typing ends.</div>
+&lt;/script&gt;
+</pre>
+<p><strong>Do:</strong> Type your username and see it appear live on the page. <strong>Check:</strong> Browser shows live preview.</p>
 </details>
 </section>
 
@@ -136,14 +109,13 @@ document.getElementById("nameInput").addEventListener("input", function(){
 <section>
 <details>
 <summary>Day 5: Multiple Event Listeners</summary>
-<p><strong>Learn:</strong> Apply multiple effects on a single element with different events.</p>
-<p><strong>Do:</strong> Hover over the box to see color change and revert on mouse leave.</p>
-
-<script>
-box.addEventListener("mouseover", ()=> box.style.background="yellow");
-box.addEventListener("mouseout", ()=> box.style.background="white");
-</script>
-<div class="tip"><strong>Tip:</strong> Multiple listeners allow complex, interactive behaviors without combining logic into one function.</div>
+<p><strong>Learn:</strong> Attach multiple event listeners to one element.</p>
+<pre>
+let box = document.getElementById("box");
+box.addEventListener("mouseover", () =&gt; box.style.background="yellow");
+box.addEventListener("mouseout", () =&gt; box.style.background="white");
+</pre>
+<p><strong>Do:</strong> Make a box change color on hover and revert when mouse leaves. <strong>Check:</strong> Browser shows behavior.</p>
 </details>
 </section>
 
@@ -151,20 +123,20 @@ box.addEventListener("mouseout", ()=> box.style.background="white");
 <section>
 <details>
 <summary>Day 6: Form Submission with JS</summary>
-<p><strong>Learn:</strong> Prevent default form submission to handle data via JavaScript.</p>
-<p><strong>Do:</strong> Enter email and submit. JS alerts your input without refreshing the page.</p>
-<form id="form">
-  <input id="email" placeholder="Enter email">
-  <button>Submit</button>
-</form>
-
-<script>
-document.getElementById("form").addEventListener("submit", function(e){
+<p><strong>Learn:</strong> Prevent default submission to handle form via JS.</p>
+<pre>
+&lt;form id="form"&gt;
+  &lt;input id="email"&gt;
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+document.getElementById("form").addEventListener("submit", function(e) {
   e.preventDefault();
   alert("Submitted: " + document.getElementById("email").value);
 });
-</script>
-<div class="tip"><strong>Tip:</strong> Always use <code>e.preventDefault()</code> to stop the page from reloading on form submit.</div>
+&lt;/script&gt;
+</pre>
+<p><strong>Do:</strong> Create a simple email form and alert value on submit. <strong>Check:</strong> Browser prevents refresh and shows value.</p>
 </details>
 </section>
 
@@ -172,11 +144,28 @@ document.getElementById("form").addEventListener("submit", function(e){
 <section>
 <details>
 <summary>Day 7: Review & Interactive Page</summary>
-<p><strong>Learn:</strong> Combine list management, live previews, event listeners, and form handling for a dynamic page.</p>
-<p><strong>Do:</strong> Build a mini todo or signup page with add/remove, live preview, and alerts for empty fields.</p>
-<div class="tip"><strong>Check:</strong> Browser should reflect all updates instantly. Text cannot be selected or copied.</div>
+<p><strong>Learn:</strong> Combine DOM events, form inputs, and live updates.</p>
+<p><strong>Do:</strong> Build a small interactive todo list or signup form with add/remove functionality, live previews, and alerts for invalid inputs. <strong>Check:</strong> Browser demonstrates all features correctly. This completes Week 14.</p>
 </details>
 </section>
+
+<script>
+// Disable right-click
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// Disable copy / cut / paste
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+// Disable Ctrl/Cmd + C / X / V / A
+document.addEventListener("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && 
+      (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
