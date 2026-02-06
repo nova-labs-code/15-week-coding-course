@@ -1,20 +1,62 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 1: HTML Basics</title>
+
 <style>
-body {
+/* =====================
+   FULL WIDTH LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Arial, sans-serif;
-  margin: 20px;
   line-height: 1.7;
   background: #f5f5f5;
   color: #333;
+  overflow-x: hidden;
 }
+
+/* =====================
+   DISABLE COPYING (CSS)
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Prevent dragging images & links */
+img, a {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+}
+
+/* Remove selection highlight */
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 h1, h2, h3 {
   color: #1e90ff;
 }
+
 section {
   background: #fff;
   padding: 20px;
@@ -22,10 +64,12 @@ section {
   margin-bottom: 20px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
+
 details {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 summary {
   cursor: pointer;
   font-weight: bold;
@@ -34,17 +78,14 @@ summary {
   background: #eee;
   font-size: 1.1em;
 }
-pre {
+
+pre, code {
   background: #eee;
   padding: 10px;
   border-radius: 6px;
   overflow-x: auto;
 }
-code {
-  background: #eee;
-  padding: 2px 4px;
-  border-radius: 3px;
-}
+
 .tip {
   background: #e8f4ff;
   padding: 10px;
@@ -53,14 +94,15 @@ code {
 }
 </style>
 </head>
+
 <body>
 
+<main>
 <h1>Week 1: HTML Basics</h1>
 <p>
 Welcome to Week 1! This week focuses on the foundations of HTML.
-HTML is used to structure content on the web, and everything you see on a website starts with it.
-Each day follows the same pattern: Learn the idea, see a real example, try it yourself, and check the result in your browser.
-Each lesson is designed to take about 30 minutes.
+HTML structures everything you see on a webpage.
+Each day follows a simple flow: learn, see, practice, and check your work.
 </p>
 
 <!-- Day 1 -->
@@ -68,12 +110,8 @@ Each lesson is designed to take about 30 minutes.
 <details open>
 <summary>Day 1: HTML Overview & Page Structure</summary>
 <p>
-<strong>Learn:</strong><br>
-HTML stands for <em>HyperText Markup Language</em>.
-It uses tags to describe content like headings, paragraphs, images, and links.
-Every HTML file has a required structure that browsers expect.
+<strong>Learn:</strong> HTML is the backbone of web pages. Every HTML file starts with <code>&lt;!DOCTYPE html&gt;</code> and is wrapped in <code>&lt;html&gt;</code>. Metadata goes inside <code>&lt;head&gt;</code> and visible content goes inside <code>&lt;body&gt;</code>.
 </p>
-
 <p><strong>See:</strong></p>
 <pre>
 &lt;!DOCTYPE html&gt;
@@ -88,20 +126,9 @@ Every HTML file has a required structure that browsers expect.
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Create a new HTML file. Add your name inside an <code>&lt;h1&gt;</code> tag and write one paragraph about yourself.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Open the file in a browser. Change the text and refresh the page to see the update immediately.
-</p>
-
-<div class="tip">
-<strong>Tip:</strong> Browsers ignore extra spaces. Clean indentation helps you read your code, not the browser.
-</div>
+<p><strong>Do:</strong> Create a new HTML file. Add your name inside an <code>&lt;h1&gt;</code> tag and write a paragraph about yourself.</p>
+<p><strong>Check:</strong> Open it in a browser and refresh after editing to see changes instantly.</p>
+<div class="tip"><strong>Tip:</strong> Indentation makes your code readable but does not affect how browsers display it.</div>
 </details>
 </section>
 
@@ -109,29 +136,15 @@ Open the file in a browser. Change the text and refresh the page to see the upda
 <section>
 <details>
 <summary>Day 2: Headings</summary>
-<p>
-<strong>Learn:</strong><br>
-Headings range from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.
-They create structure and hierarchy on a page.
-Only one <code>&lt;h1&gt;</code> should be used per page.
-</p>
-
+<p><strong>Learn:</strong> Headings organize content from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>. Only one <code>&lt;h1&gt;</code> per page.</p>
 <p><strong>See:</strong></p>
 <pre>
 &lt;h1&gt;My Website&lt;/h1&gt;
 &lt;h2&gt;About Me&lt;/h2&gt;
 &lt;h3&gt;Hobbies&lt;/h3&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Create a page with your name as an H1, an “About Me” section using H2, and a “Hobbies” subsection using H3.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Confirm headings appear in decreasing size and make sense when read top to bottom.
-</p>
+<p><strong>Do:</strong> Create a page with your name as H1, "About Me" as H2, and a "Hobbies" subsection as H3.</p>
+<p><strong>Check:</strong> Headings should decrease in size logically.</p>
 </details>
 </section>
 
@@ -139,26 +152,13 @@ Confirm headings appear in decreasing size and make sense when read top to botto
 <section>
 <details>
 <summary>Day 3: Paragraphs & Text Formatting</summary>
-<p>
-<strong>Learn:</strong><br>
-Paragraphs are created with <code>&lt;p&gt;</code>.
-Use <code>&lt;strong&gt;</code> for importance and <code>&lt;em&gt;</code> for emphasis.
-</p>
-
+<p><strong>Learn:</strong> Paragraphs use <code>&lt;p&gt;</code>. Use <code>&lt;strong&gt;</code> for bold and <code>&lt;em&gt;</code> for italics.</p>
 <p><strong>See:</strong></p>
 <pre>
 &lt;p&gt;I enjoy &lt;strong&gt;coding&lt;/strong&gt; and &lt;em&gt;learning new things&lt;/em&gt;.&lt;/p&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Write two paragraphs about a hobby or interest. Use bold and italic text naturally.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Make sure formatting highlights important words without overusing it.
-</p>
+<p><strong>Do:</strong> Write two paragraphs about a hobby or interest using bold and italics naturally.</p>
+<p><strong>Check:</strong> Make sure formatting highlights important words correctly.</p>
 </details>
 </section>
 
@@ -166,12 +166,7 @@ Make sure formatting highlights important words without overusing it.
 <section>
 <details>
 <summary>Day 4: Lists</summary>
-<p>
-<strong>Learn:</strong><br>
-Lists organize information clearly.
-Use <code>&lt;ul&gt;</code> for unordered lists and <code>&lt;ol&gt;</code> for ordered lists.
-</p>
-
+<p><strong>Learn:</strong> Lists organize content. <code>&lt;ul&gt;</code> for bullets, <code>&lt;ol&gt;</code> for numbers.</p>
 <p><strong>See:</strong></p>
 <pre>
 &lt;ul&gt;
@@ -184,16 +179,8 @@ Use <code>&lt;ul&gt;</code> for unordered lists and <code>&lt;ol&gt;</code> for 
   &lt;li&gt;Study&lt;/li&gt;
 &lt;/ol&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Create one unordered list of hobbies and one ordered list of your daily routine.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Verify bullets and numbers display correctly and try nesting a list inside another.
-</p>
+<p><strong>Do:</strong> Make one unordered list of hobbies and one ordered list of daily routine.</p>
+<p><strong>Check:</strong> Verify bullets and numbers show correctly and try nesting a sub-list.</p>
 </details>
 </section>
 
@@ -201,26 +188,13 @@ Verify bullets and numbers display correctly and try nesting a list inside anoth
 <section>
 <details>
 <summary>Day 5: Links</summary>
-<p>
-<strong>Learn:</strong><br>
-Links connect pages and websites.
-The <code>href</code> attribute defines the destination.
-</p>
-
+<p><strong>Learn:</strong> Links navigate to other pages. Use <code>href</code> for destinations.</p>
 <p><strong>See:</strong></p>
 <pre>
 &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Add two external links and one link to another local HTML file.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Hover over links and click them to ensure they go to the correct place.
-</p>
+<p><strong>Do:</strong> Add two external links and one link to a local file.</p>
+<p><strong>Check:</strong> Hover and click links to make sure they work.</p>
 </details>
 </section>
 
@@ -228,26 +202,13 @@ Hover over links and click them to ensure they go to the correct place.
 <section>
 <details>
 <summary>Day 6: Images</summary>
-<p>
-<strong>Learn:</strong><br>
-Images use the <code>&lt;img&gt;</code> tag.
-The <code>alt</code> attribute is required for accessibility.
-</p>
-
+<p><strong>Learn:</strong> Images use <code>&lt;img&gt;</code>. Alt text is important for accessibility.</p>
 <p><strong>See:</strong></p>
 <pre>
 &lt;img src="image.jpg" alt="Description" width="200"&gt;
 </pre>
-
-<p>
-<strong>Do:</strong><br>
-Add an image to your page and resize it using the width attribute.
-</p>
-
-<p>
-<strong>Check:</strong><br>
-Confirm the image loads and the alt text makes sense.
-</p>
+<p><strong>Do:</strong> Add an image and adjust width.</p>
+<p><strong>Check:</strong> Ensure the image loads and alt text is meaningful.</p>
 </details>
 </section>
 
@@ -255,31 +216,42 @@ Confirm the image loads and the alt text makes sense.
 <section>
 <details>
 <summary>Day 7: Review & Mini Profile</summary>
-<p>
-<strong>Learn:</strong><br>
-Today you combine everything you learned this week into one clean HTML page.
-</p>
-
-<p>
-<strong>Do:</strong><br>
-Create a profile page that includes:
+<p><strong>Learn:</strong> Combine all skills into a profile page.</p>
+<p><strong>Do:</strong> Include:
 <ul>
-  <li>One H1</li>
-  <li>At least two paragraphs</li>
-  <li>An unordered list</li>
-  <li>An ordered list</li>
-  <li>One image</li>
-  <li>One link</li>
+<li>H1 heading</li>
+<li>Two paragraphs</li>
+<li>One unordered list</li>
+<li>One ordered list</li>
+<li>One image</li>
+<li>One link</li>
 </ul>
 </p>
-
-<p>
-<strong>Check:</strong><br>
-Open the page in a browser and review structure, spacing, and readability.
-Clean up indentation and make sure everything makes sense visually.
-</p>
+<p><strong>Check:</strong> Verify display, indentation, and readability in a browser.</p>
 </details>
 </section>
+
+</main>
+
+<!-- =====================
+     DISABLE PC COPY & MENU
+     ===================== -->
+<script>
+// Disable right-click menu
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
