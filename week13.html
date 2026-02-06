@@ -3,46 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 13: JS DOM Events & Forms – Part 1 (No Copy)</title>
+<title>Week 13: JS DOM Events & Forms – Part 1</title>
 <style>
 body { 
   font-family: Arial, sans-serif; 
   margin:20px; 
   line-height:1.6; 
   background:#f5f5f5; 
-  color:#333; 
-  user-select: none; 
-}
-h1,h2,h3 { color:#1e90ff; }
-section { 
-  background:#fff; 
-  padding:20px; 
-  border-radius:8px; 
-  margin-bottom:20px; 
-  box-shadow:0 0 8px rgba(0,0,0,0.1);
-}
-details { margin-top:10px; margin-bottom:10px; }
-summary { 
-  cursor:pointer; 
-  font-weight:bold; 
-  padding:10px; 
-  border-radius:4px; 
-  background:#eee; 
-  font-size:1.1em;
+  color:#333;
+
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
-pre, code { 
-  background:#eee; 
-  padding:10px; 
-  border-radius:6px; 
-  overflow-x:auto;
-  user-select: none;
-}
-input, button { padding:5px 8px; margin-top:5px; }
-.tip { background:#e8f4ff; padding:10px; border-left:4px solid #1e90ff; margin-top:10px; }
+h1,h2,h3 {color:#1e90ff;}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+details {margin-top:10px;margin-bottom:10px;}
+summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
+pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
+code {background:#eee;padding:2px 4px;border-radius:3px;}
+input, button {padding:5px 8px; margin-top:5px; user-select: auto !important;}
+.tip {background:#e8f4ff;padding:10px;border-left:4px solid #1e90ff;margin-top:10px;}
 </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
 <h1>Week 13: JS DOM Events & Forms – Part 1</h1>
 <p>This week teaches <strong>events, form inputs, and basic interaction</strong> to make dynamic pages that respond to user actions.</p>
@@ -51,7 +39,7 @@ input, button { padding:5px 8px; margin-top:5px; }
 <section>
 <details open>
 <summary>Day 1: Click Events Review</summary>
-<p><strong>Learn:</strong> Buttons and elements can react to clicks using <code>addEventListener</code>.</p>
+<p><strong>Learn:</strong> Buttons and elements can react to clicks using <code>onclick</code> or <code>addEventListener</code>.</p>
 <pre>
 &lt;button id="btn"&gt;Click Me&lt;/button&gt;
 &lt;script&gt;
@@ -72,12 +60,12 @@ document.getElementById("btn").addEventListener("click", function() {
 <p><strong>Learn:</strong> HTML inputs allow users to type data that JS can access.</p>
 <pre>
 &lt;input id="nameInput" placeholder="Enter name"&gt;
-&lt;button id="submitBtn"&gt;Submit&lt;/button&gt;
+&lt;button onclick="showName()"&gt;Submit&lt;/button&gt;
 &lt;script&gt;
-document.getElementById("submitBtn").addEventListener("click", function() {
+function showName() {
   let name = document.getElementById("nameInput").value;
   alert("Hello " + name);
-});
+}
 &lt;/script&gt;
 </pre>
 <p><strong>Do:</strong> Add an input for your favorite hobby and display it in an alert.</p>
@@ -89,7 +77,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
 <section>
 <details>
 <summary>Day 3: Change & Input Events</summary>
-<p><strong>Learn:</strong> Input fields can react live as users type using <code>oninput</code> or <code>addEventListener("input")</code>.</p>
+<p><strong>Learn:</strong> Input fields can react live as users type using <code>oninput</code> or <code>onchange</code>.</p>
 <pre>
 &lt;input id="textInput"&gt;
 &lt;p id="display"&gt;&lt;/p&gt;
@@ -110,18 +98,20 @@ document.getElementById("textInput").addEventListener("input", function() {
 <summary>Day 4: Form Validation</summary>
 <p><strong>Learn:</strong> JS can validate input before form submission.</p>
 <pre>
-&lt;form id="form"&gt;
+&lt;form onsubmit="return checkForm()"&gt;
   &lt;input id="age" type="number"&gt;
   &lt;button&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 
 &lt;script&gt;
-document.getElementById("form").addEventListener("submit", function(e) {
-  e.preventDefault();
+function checkForm() {
   let age = document.getElementById("age").value;
-  if(age === "" || age &lt; 0) alert("Enter a valid age");
-  else alert("Age entered: " + age);
-});
+  if(age === "" || age &lt; 0) {
+    alert("Enter a valid age");
+    return false;
+  }
+  return true;
+}
 &lt;/script&gt;
 </pre>
 <p><strong>Do:</strong> Create a form asking for username and prevent submission if empty.</p>
@@ -172,6 +162,24 @@ document.addEventListener("keydown", function(e) {
 <p><strong>Check:</strong> Browser prevents invalid input and displays correct messages. This completes Week 13.</p>
 </details>
 </section>
+
+<script>
+// Disable right-click
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// Disable copy / cut / paste
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+// Disable Ctrl/Cmd + C / X / V / A
+document.addEventListener("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && 
+      (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
