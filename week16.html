@@ -3,26 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 16: User Experience & Design</title>
+<title>Week 16: User Experience & Design – Extended</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+body { 
+  font-family: Arial, sans-serif; 
+  margin:20px; 
+  line-height:1.6; 
+  background:#f5f5f5; 
+  color:#333;
+
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
 h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
+section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 12px rgba(0,0,0,0.15);}
 details {margin-top:10px;margin-bottom:10px;}
 summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
 ul {margin-left:20px;}
+.tip {background:#e8f4ff;padding:10px;border-left:4px solid #1e90ff;margin-top:10px;}
+.exercise {background:#fff3e8;padding:10px;border-left:4px solid #ff8c00;margin-top:10px;margin-bottom:10px;}
 </style>
 </head>
 <body>
 
-<h1>Week 16: User Experience & Design</h1>
-<p>This week focuses on **creating a smooth, user-friendly website experience**, making sure your visitors can navigate, understand, and enjoy your content.</p>
+<h1>Week 16: User Experience & Design – Extended</h1>
+<p>This week focuses on **creating a smooth, user-friendly website experience**, with added exercises and tips to help refine your design and usability thinking.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Navigation Design</summary>
-<p><strong>Learn:</strong> Menus and navigation paths guide users. Clear labels, logical page order, and visible menus improve usability. <strong>Do:</strong> Sketch your main menu with all top-level pages and potential submenus. <strong>Check:</strong> Ensure users can reach any page in 2–3 clicks or less.</p>
+<p><strong>Learn:</strong> Menus guide users. Use clear labels, logical ordering, and visible navigation. Avoid long menus and confusing labels.</p>
+<p><strong>Do:</strong> Sketch your main menu including top-level pages and possible submenus. Consider drop-downs, hamburger menus, or sticky headers.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Draw two navigation versions and pick the one that allows users to reach any page in 2–3 clicks.</div>
+<div class="tip"><strong>Tip:</strong> Use common words like "Home", "About", "Contact" to avoid confusing visitors.</div>
 </details>
 </section>
 
@@ -30,7 +49,10 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 2: Mobile-First Thinking</summary>
-<p><strong>Learn:</strong> Many users browse on mobile. Design for small screens first, then scale up. <strong>Do:</strong> Draw your homepage layout as it would appear on a phone, focusing on readable text and tappable buttons. <strong>Check:</strong> Layout remains clear without horizontal scrolling and text is legible.</p>
+<p><strong>Learn:</strong> Most users browse on mobile. Start with small screens, then scale up. Focus on readability, touch-friendly buttons, and vertical layouts.</p>
+<p><strong>Do:</strong> Draw a mobile layout of your homepage. Include header, content sections, buttons, and footer. Ensure text and buttons are easy to see and tap.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Check your design with small sticky notes or screenshots to simulate a phone screen.</div>
+<div class="tip"><strong>Tip:</strong> Mobile-first design avoids clutter and forces prioritization of content.</div>
 </details>
 </section>
 
@@ -38,7 +60,16 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 3: Accessibility</summary>
-<p><strong>Learn:</strong> Make your site usable for all. Check color contrast, readable fonts, alt text for images, and keyboard navigation. <strong>Do:</strong> Test your page with high-contrast mode, tab navigation, and screen reader tools. <strong>Check:</strong> All content is accessible without relying only on color or mouse.</p>
+<p><strong>Learn:</strong> Make your site usable for all users. Consider:</p>
+<ul>
+  <li>Color contrast for readability</li>
+  <li>Alt text for images</li>
+  <li>Keyboard navigation</li>
+  <li>Readable fonts and sizes</li>
+</ul>
+<p><strong>Do:</strong> Test your page using high-contrast mode, keyboard navigation, and screen reader tools.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> List 3 accessibility issues you notice on a sample website and suggest fixes.</div>
+<div class="tip"><strong>Tip:</strong> Accessibility improves SEO and helps more users interact with your content.</div>
 </details>
 </section>
 
@@ -46,7 +77,10 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 4: Visual Hierarchy</summary>
-<p><strong>Learn:</strong> Guide users’ attention with headings, spacing, images, and highlights. <strong>Do:</strong> Organize a sample page using headings, paragraphs, and images so the most important info stands out. <strong>Check:</strong> Someone unfamiliar should understand the page quickly.</p>
+<p><strong>Learn:</strong> Guide attention with headings, spacing, images, and highlights. Important info should be most prominent.</p>
+<p><strong>Do:</strong> Organize a sample page with headings, paragraphs, and images. Make main points stand out and less important info smaller or secondary.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Create a page mockup showing 3 levels of headings, text blocks, and one highlighted call-to-action.</div>
+<div class="tip"><strong>Tip:</strong> White space is powerful. Avoid clutter to let users focus on key content.</div>
 </details>
 </section>
 
@@ -54,7 +88,10 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 5: User Flow Testing</summary>
-<p><strong>Learn:</strong> Simulate users completing tasks like “Sign up” or “Find a blog post.” Look for friction points. <strong>Do:</strong> Ask a friend to navigate your site mockup and note confusion points. <strong>Check:</strong> Identify at least 2 areas to improve usability.</p>
+<p><strong>Learn:</strong> Simulate users completing tasks like signing up or finding info. Look for confusing steps.</p>
+<p><strong>Do:</strong> Ask a friend to navigate your mockup and note friction points. Focus on tasks like submitting a form or accessing content.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Document at least 2 usability issues and propose solutions (e.g., clearer buttons, simpler form).</div>
+<div class="tip"><strong>Tip:</strong> Observing others is one of the fastest ways to spot UX problems.</div>
 </details>
 </section>
 
@@ -62,7 +99,10 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 6: Feedback Systems</summary>
-<p><strong>Learn:</strong> Collect user feedback through forms, polls, or comment sections. <strong>Do:</strong> Create a feedback form asking 2–3 questions about your content and layout. <strong>Check:</strong> Form should be easy to fill and submit, and responses readable.</p>
+<p><strong>Learn:</strong> Collect user feedback with forms, polls, or surveys. Feedback helps refine design and content.</p>
+<p><strong>Do:</strong> Create a simple feedback form with 2–3 questions about content and layout. Make it easy to submit and read responses.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Test the form with a friend and note if they find it clear and easy to use.</div>
+<div class="tip"><strong>Tip:</strong> Even short surveys can reveal hidden usability issues.</div>
 </details>
 </section>
 
@@ -70,9 +110,37 @@ ul {margin-left:20px;}
 <section>
 <details>
 <summary>Day 7: Weekly Review</summary>
-<p><strong>Learn:</strong> Combine insights from navigation, mobile design, accessibility, hierarchy, user flow, and feedback. <strong>Do:</strong> Update your site mockup or prototype with improvements. <strong>Check:</strong> You should have a refined, user-friendly design ready for content and eventual launch.</p>
+<p><strong>Learn:</strong> Combine lessons from navigation, mobile design, accessibility, visual hierarchy, user flow, and feedback.</p>
+<p><strong>Do:</strong> Update your mockup or prototype with improvements. Test navigation paths, headings, mobile layout, and feedback forms.</p>
+<div class="exercise"><strong>Mini Exercise:</strong> Create a checklist covering:</div>
+<ul>
+  <li>All main pages accessible</li>
+  <li>Mobile readability</li>
+  <li>Accessible colors and fonts</li>
+  <li>Clear visual hierarchy</li>
+  <li>Functional feedback system</li>
+</ul>
+<div class="tip"><strong>Tip:</strong> A refined prototype will save time and frustration once you start coding.</div>
 </details>
 </section>
+
+<script>
+// Disable right-click
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+// Disable copy / cut / paste
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+// Disable Ctrl/Cmd + C / X / V / A
+document.addEventListener("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && 
+      (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
