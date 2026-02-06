@@ -3,32 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 6: CSS Advanced</title>
+<title>Week 6: CSS Advanced – Layout & Transitions</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+/* =====================
+   FULL WIDTH & LAYOUT
+   ===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* =====================
+   DISABLE COPYING
+   ===================== */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+img, a { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: none !important; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }
+
+/* =====================
+   CONTENT STYLING
+   ===================== */
+main { width: 100%; padding: 20px; box-sizing: border-box; }
+h1,h2,h3 { color: #1e90ff; }
+section { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+details { margin-top: 10px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; padding: 10px; border-radius: 4px; background: #eee; font-size: 1.1em; }
+pre, code { background: #eee; padding: 10px; border-radius: 6px; overflow-x: auto; }
+.tip { background: #e8f4ff; padding: 10px; border-left: 4px solid #1e90ff; margin-top: 10px; }
 </style>
 </head>
 <body>
 
+<main>
 <h1>Week 6: CSS Advanced – Layout & Transitions</h1>
-<p>This week we explore **CSS transitions, animations, layering, z-index, and hover transformations** to make pages interactive and smooth. One long paragraph per day, ~30 minutes each.</p>
+<p>This week we dive into **advanced CSS techniques**: transitions, transforms, layering, opacity, shadows, and interactive hover effects. Each day now contains multiple examples, exercises, and tips to practice and understand smoothly.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: CSS Transitions</summary>
-<p><strong>Learn:</strong> Transitions allow smooth changes of properties. Example: <code>transition: all 0.3s ease;</code> animates any change. <strong>See:</strong><br>
+<p><strong>Learn:</strong> CSS transitions allow smooth animation between property changes. You can transition colors, sizes, spacing, shadows, and more. Example: <code>transition: all 0.3s ease;</code> will animate any change over 0.3 seconds.</p>
+<p><strong>See:</strong></p>
 <pre>
-div.box {background: #ddd; padding:20px; transition: all 0.3s ease;}
-div.box:hover {background:#aaa;}
+div.box {
+  background: #ddd; 
+  padding: 20px; 
+  transition: all 0.3s ease;
+}
+div.box:hover {
+  background: #aaa;
+  transform: scale(1.05);
+}
 </pre>
-<strong>Do:</strong> Add a hover transition to a section or card on your page. <strong>Check:</strong> Observe smooth color change when hovering.</p>
+<p><strong>Do:</strong> Apply a hover transition to a section or card on your page, try changing background color, padding, or scale.</p>
+<p><strong>Check:</strong> Hover in the browser to see smooth animation.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>transition</code> for subtle changes; too many can make a page feel slow.</div>
 </details>
 </section>
 
@@ -36,7 +79,19 @@ div.box:hover {background:#aaa;}
 <section>
 <details>
 <summary>Day 2: Transform & Scale</summary>
-<p><strong>Learn:</strong> Use <code>transform</code> to rotate, scale, or move elements. Example: <code>transform: scale(1.1);</code> enlarges element. <strong>Do:</strong> Apply scale on hover to a card or button. <strong>Check:</strong> Open browser and hover to see interactive growth.</p>
+<p><strong>Learn:</strong> CSS <code>transform</code> allows scaling, rotating, moving, or skewing elements. Example: <code>transform: scale(1.1);</code> makes an element 10% larger on hover.</p>
+<p><strong>See:</strong></p>
+<pre>
+div.card {
+  transition: transform 0.3s ease;
+}
+div.card:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+</pre>
+<p><strong>Do:</strong> Apply scale and rotation to a card or image on hover. Experiment with values like 1.2, -10deg rotation, or translateX/Y to move elements slightly.</p>
+<p><strong>Check:</strong> Hover in browser and see interactive growth or movement.</p>
+<div class="tip"><strong>Tip:</strong> Small transforms give a subtle, professional effect; large transforms may feel jarring.</div>
 </details>
 </section>
 
@@ -44,7 +99,15 @@ div.box:hover {background:#aaa;}
 <section>
 <details>
 <summary>Day 3: Z-index & Layering</summary>
-<p><strong>Learn:</strong> <code>z-index</code> controls stacking order for positioned elements. Example: <code>position: relative; z-index: 2;</code>. <strong>Do:</strong> Overlap two divs and assign different z-index values to see which appears on top. <strong>Check:</strong> Browser shows correct layering.</p>
+<p><strong>Learn:</strong> <code>z-index</code> controls stacking order of elements. Only works on positioned elements (<code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>). Higher numbers appear on top.</p>
+<p><strong>See:</strong></p>
+<pre>
+div.background { position: relative; z-index: 1; }
+div.foreground { position: relative; z-index: 2; }
+</pre>
+<p><strong>Do:</strong> Overlap two divs and assign different <code>z-index</code> values to see which appears on top. Experiment with negative z-index for background layering.</p>
+<p><strong>Check:</strong> Browser displays correct layering.</p>
+<div class="tip"><strong>Tip:</strong> Use z-index carefully; too many layers can confuse layout structure.</div>
 </details>
 </section>
 
@@ -52,7 +115,20 @@ div.box:hover {background:#aaa;}
 <section>
 <details>
 <summary>Day 4: Opacity & Visibility</summary>
-<p><strong>Learn:</strong> CSS can control transparency with <code>opacity</code> or <code>visibility</code>. Example: <code>opacity: 0.5;</code> makes element semi-transparent. <strong>Do:</strong> Apply opacity to an image or div. <strong>Check:</strong> Browser shows transparency effect.</p>
+<p><strong>Learn:</strong> Control element transparency with <code>opacity</code> (0 fully transparent, 1 fully visible) and toggle visibility with <code>visibility</code>. Example: <code>opacity: 0.5;</code> makes element semi-transparent.</p>
+<p><strong>See:</strong></p>
+<pre>
+div.overlay {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+div.overlay:hover {
+  opacity: 1;
+}
+</pre>
+<p><strong>Do:</strong> Add opacity to an image or card and adjust on hover. Combine with transitions for smooth effect.</p>
+<p><strong>Check:</strong> Browser shows fading effect when hovering.</p>
+<div class="tip"><strong>Tip:</strong> Opacity can enhance layering and focus without removing elements.</div>
 </details>
 </section>
 
@@ -60,18 +136,24 @@ div.box:hover {background:#aaa;}
 <section>
 <details>
 <summary>Day 5: Hover Transitions Combined</summary>
-<p><strong>Learn:</strong> Combine transformations, color changes, and opacity with transitions for smooth hover effects. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Combine transformations, color changes, opacity, and shadow in one smooth hover effect.</p>
+<p><strong>See:</strong></p>
 <pre>
 div.card {
   transition: all 0.4s ease;
+  background: #eef;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 div.card:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
+  transform: scale(1.05) rotate(-2deg);
+  opacity: 0.85;
   background-color: #cce7ff;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 }
 </pre>
-<strong>Do:</strong> Apply combined hover transitions to a section. <strong>Check:</strong> Observe smooth visual changes in the browser.</p>
+<p><strong>Do:</strong> Apply combined hover effects to a section, button, or card. Experiment with scaling, rotation, opacity, and shadow simultaneously.</p>
+<p><strong>Check:</strong> Observe smooth visual change in browser.</p>
+<div class="tip"><strong>Tip:</strong> Combining subtle effects creates a professional and interactive feel.</div>
 </details>
 </section>
 
@@ -79,7 +161,23 @@ div.card:hover {
 <section>
 <details>
 <summary>Day 6: Border & Shadow Animations</summary>
-<p><strong>Learn:</strong> You can animate borders and shadows. Example: <code>box-shadow</code> changes with transition. <strong>Do:</strong> Add animated shadows and border color changes on hover for a card. <strong>Check:</strong> Browser shows interactive changes on hover.</p>
+<p><strong>Learn:</strong> Animate borders and shadows using transitions for dynamic UI feedback. Example: hover highlights card with shadow and border color change.</p>
+<p><strong>See:</strong></p>
+<pre>
+div.card {
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+div.card:hover {
+  border-color: #1e90ff;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.4);
+}
+</pre>
+<p><strong>Do:</strong> Apply border and shadow transitions to a card or image section. Experiment with color, shadow size, and border width.</p>
+<p><strong>Check:</strong> Browser shows animated border and shadow on hover.</p>
+<div class="tip"><strong>Tip:</strong> Use these animations for call-to-action elements or highlighting important content.</div>
 </details>
 </section>
 
@@ -87,9 +185,40 @@ div.card:hover {
 <section>
 <details>
 <summary>Day 7: Review & Interactive Page</summary>
-<p><strong>Learn:</strong> Combine all transitions, transformations, z-index, opacity, and shadows for a fully interactive page. <strong>Do:</strong> Enhance your profile page cards or sections with hover effects and smooth transitions. <strong>Check:</strong> Open in browser to see everything work together seamlessly. This completes Week 6.</p>
+<p><strong>Learn:</strong> Merge all Week 6 techniques: transitions, transforms, z-index, opacity, shadows, and hover effects to create an interactive profile page or card layout.</p>
+<p><strong>Do:</strong></p>
+<ul>
+<li>Enhance at least three sections/cards with hover effects and transitions.</li>
+<li>Use layering, opacity, and shadows to guide visual hierarchy.</li>
+<li>Experiment with scale, rotation, and color transitions for interactivity.</li>
+<li>Ensure consistent design, smooth animations, and readability.</li>
+</ul>
+<p><strong>Check:</strong> Open in browser to verify all effects work seamlessly and the page feels dynamic and professional.</p>
+<div class="tip"><strong>Tip:</strong> Subtle, consistent effects improve user experience without overwhelming the design.</div>
 </details>
 </section>
+
+</main>
+
+<!-- =====================
+     DISABLE COPY & SHORTCUTS
+     ===================== -->
+<script>
+// Disable right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Disable copy, cut, paste, select, drag
+['copy','cut','paste','selectstart','dragstart'].forEach(event => {
+  document.addEventListener(event, e => e.preventDefault());
+});
+
+// Disable keyboard shortcuts (Ctrl/Cmd + C/X/V/A/S/U/P)
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['c','x','v','a','s','u','p'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+</script>
 
 </body>
 </html>
