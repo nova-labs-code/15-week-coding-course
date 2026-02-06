@@ -1,30 +1,82 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 1: HTML Basics</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
-h1,h2,h3{color:#1e90ff;}
-section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
-summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
-pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
-code {background:#eee;padding:2px 4px;border-radius:3px;}
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.7;
+  background: #f5f5f5;
+  color: #333;
+}
+h1, h2, h3 {
+  color: #1e90ff;
+}
+section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+details {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 1.1em;
+}
+pre {
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+code {
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.tip {
+  background: #e8f4ff;
+  padding: 10px;
+  border-left: 4px solid #1e90ff;
+  margin-top: 10px;
+}
 </style>
 </head>
 <body>
 
 <h1>Week 1: HTML Basics</h1>
-<p>Welcome to Week 1! This week, you will learn the foundations of HTML using an interactive method: Learn the concept, See an example, Do a small exercise, and Check your results in the browser. Each day is designed to take about 30 minutes.</p>
+<p>
+Welcome to Week 1! This week focuses on the foundations of HTML.
+HTML is used to structure content on the web, and everything you see on a website starts with it.
+Each day follows the same pattern: Learn the idea, see a real example, try it yourself, and check the result in your browser.
+Each lesson is designed to take about 30 minutes.
+</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: HTML Overview & Page Structure</summary>
-<p><strong>Learn:</strong> HTML is the foundation of web pages. Every document starts with <code>&lt;!DOCTYPE html&gt;</code> and is wrapped in <code>&lt;html&gt;</code>. The <code>&lt;head&gt;</code> contains metadata like <code>&lt;title&gt;</code> and <code>&lt;meta charset="UTF-8"&gt;</code>, while the <code>&lt;body&gt;</code> contains all visible content. <strong>See:</strong> Example of a simple page:<br>
-<pre>&lt;!DOCTYPE html&gt;
+<p>
+<strong>Learn:</strong><br>
+HTML stands for <em>HyperText Markup Language</em>.
+It uses tags to describe content like headings, paragraphs, images, and links.
+Every HTML file has a required structure that browsers expect.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
+&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -36,7 +88,20 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-<strong>Do:</strong> Create a new HTML file with your name as the <code>&lt;h1&gt;</code> heading and a paragraph about yourself. <strong>Check:</strong> Open it in a browser and verify that the heading and paragraph appear correctly, then try changing the text to see updates instantly.</p>
+
+<p>
+<strong>Do:</strong><br>
+Create a new HTML file. Add your name inside an <code>&lt;h1&gt;</code> tag and write one paragraph about yourself.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Open the file in a browser. Change the text and refresh the page to see the update immediately.
+</p>
+
+<div class="tip">
+<strong>Tip:</strong> Browsers ignore extra spaces. Clean indentation helps you read your code, not the browser.
+</div>
 </details>
 </section>
 
@@ -44,12 +109,29 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 2: Headings</summary>
-<p><strong>Learn:</strong> Headings organize content using <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, with <code>&lt;h1&gt;</code> as the main title. Logical heading levels improve readability and accessibility. <strong>See:</strong><br>
-<pre>&lt;h1&gt;My Website&lt;/h1&gt;
+<p>
+<strong>Learn:</strong><br>
+Headings range from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.
+They create structure and hierarchy on a page.
+Only one <code>&lt;h1&gt;</code> should be used per page.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
+&lt;h1&gt;My Website&lt;/h1&gt;
 &lt;h2&gt;About Me&lt;/h2&gt;
 &lt;h3&gt;Hobbies&lt;/h3&gt;
 </pre>
-<strong>Do:</strong> Create a mini-bio page using H1 for your name, H2 for “About Me,” and H3 for “Hobbies,” adding a few sentences under each. <strong>Check:</strong> Verify that the headings appear in decreasing size and are logically structured, and use only one <code>&lt;h1&gt;</code> per page.</p>
+
+<p>
+<strong>Do:</strong><br>
+Create a page with your name as an H1, an “About Me” section using H2, and a “Hobbies” subsection using H3.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Confirm headings appear in decreasing size and make sense when read top to bottom.
+</p>
 </details>
 </section>
 
@@ -57,10 +139,26 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 3: Paragraphs & Text Formatting</summary>
-<p><strong>Learn:</strong> Paragraphs use <code>&lt;p&gt;</code> and text can be emphasized with <code>&lt;strong&gt;</code> for bold and <code>&lt;em&gt;</code> for italics. <strong>See:</strong><br>
-<pre>&lt;p&gt;I love &lt;strong&gt;coding&lt;/strong&gt; and &lt;em&gt;reading&lt;/em&gt; books.&lt;/p&gt;
+<p>
+<strong>Learn:</strong><br>
+Paragraphs are created with <code>&lt;p&gt;</code>.
+Use <code>&lt;strong&gt;</code> for importance and <code>&lt;em&gt;</code> for emphasis.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
+&lt;p&gt;I enjoy &lt;strong&gt;coding&lt;/strong&gt; and &lt;em&gt;learning new things&lt;/em&gt;.&lt;/p&gt;
 </pre>
-<strong>Do:</strong> Write two paragraphs about yourself or your hobby, including bold and italic text. <strong>Check:</strong> Open in a browser to verify formatting, making sure important words are emphasized correctly and the page is readable.</p>
+
+<p>
+<strong>Do:</strong><br>
+Write two paragraphs about a hobby or interest. Use bold and italic text naturally.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Make sure formatting highlights important words without overusing it.
+</p>
 </details>
 </section>
 
@@ -68,19 +166,34 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 4: Lists</summary>
-<p><strong>Learn:</strong> Lists organize content: <code>&lt;ul&gt;</code> for bullets, <code>&lt;ol&gt;</code> for numbered items, and <code>&lt;li&gt;</code> for each item. Lists can also be nested. <strong>See:</strong><br>
-<pre>&lt;h2&gt;Hobbies&lt;/h2&gt;
+<p>
+<strong>Learn:</strong><br>
+Lists organize information clearly.
+Use <code>&lt;ul&gt;</code> for unordered lists and <code>&lt;ol&gt;</code> for ordered lists.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
 &lt;ul&gt;
-  &lt;li&gt;Coding&lt;/li&gt;
-  &lt;li&gt;Gaming&lt;/li&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Daily Routine&lt;/h2&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Wake up&lt;/li&gt;
-  &lt;li&gt;Code&lt;/li&gt;
+  &lt;li&gt;Study&lt;/li&gt;
 &lt;/ol&gt;
 </pre>
-<strong>Do:</strong> Create your own unordered list of hobbies and an ordered list of daily routine. <strong>Check:</strong> Open in a browser to see bullets and numbers, and experiment with nesting a sub-list inside a list item.</p>
+
+<p>
+<strong>Do:</strong><br>
+Create one unordered list of hobbies and one ordered list of your daily routine.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Verify bullets and numbers display correctly and try nesting a list inside another.
+</p>
 </details>
 </section>
 
@@ -88,10 +201,26 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 5: Links</summary>
-<p><strong>Learn:</strong> Links are created with <code>&lt;a href="URL"&gt;Link Text&lt;/a&gt;</code> and allow navigation to other pages or websites. <strong>See:</strong><br>
-<pre>&lt;p&gt;Visit &lt;a href="https://www.wikipedia.org"&gt;Wikipedia&lt;/a&gt; for information.&lt;/p&gt;
+<p>
+<strong>Learn:</strong><br>
+Links connect pages and websites.
+The <code>href</code> attribute defines the destination.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
 </pre>
-<strong>Do:</strong> Add at least two links to your favorite websites with descriptive text, and try linking to a local HTML page like <code>day1.html</code>. <strong>Check:</strong> Hover over links to confirm they are clickable and open the correct destination.</p>
+
+<p>
+<strong>Do:</strong><br>
+Add two external links and one link to another local HTML file.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Hover over links and click them to ensure they go to the correct place.
+</p>
 </details>
 </section>
 
@@ -99,10 +228,26 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 6: Images</summary>
-<p><strong>Learn:</strong> Images are added with <code>&lt;img src="file.jpg" alt="description"&gt;</code> and can include width and height attributes. Alt text is important for accessibility. <strong>See:</strong><br>
-<pre>&lt;img src="profile.jpg" alt="My Profile Picture" width="200"&gt;
+<p>
+<strong>Learn:</strong><br>
+Images use the <code>&lt;img&gt;</code> tag.
+The <code>alt</code> attribute is required for accessibility.
+</p>
+
+<p><strong>See:</strong></p>
+<pre>
+&lt;img src="image.jpg" alt="Description" width="200"&gt;
 </pre>
-<strong>Do:</strong> Add a profile picture or placeholder image to your page, set a width for proper display, and add meaningful alt text. <strong>Check:</strong> Open in a browser to see the image and experiment with different placements relative to text.</p>
+
+<p>
+<strong>Do:</strong><br>
+Add an image to your page and resize it using the width attribute.
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Confirm the image loads and the alt text makes sense.
+</p>
 </details>
 </section>
 
@@ -110,7 +255,29 @@ code {background:#eee;padding:2px 4px;border-radius:3px;}
 <section>
 <details>
 <summary>Day 7: Review & Mini Profile</summary>
-<p><strong>Learn:</strong> Combine all the skills from Days 1–6 to create a complete HTML profile page, including H1 heading, two paragraphs, an unordered list, an ordered list, one link, and one image. <strong>Do:</strong> Build the page, paying attention to indentation, semantic structure, and readability. <strong>Check:</strong> Open in a browser to verify that all elements display correctly, are logically structured, and your code is clean, making adjustments if necessary. This final exercise consolidates all your HTML basics for Week 1.</p>
+<p>
+<strong>Learn:</strong><br>
+Today you combine everything you learned this week into one clean HTML page.
+</p>
+
+<p>
+<strong>Do:</strong><br>
+Create a profile page that includes:
+<ul>
+  <li>One H1</li>
+  <li>At least two paragraphs</li>
+  <li>An unordered list</li>
+  <li>An ordered list</li>
+  <li>One image</li>
+  <li>One link</li>
+</ul>
+</p>
+
+<p>
+<strong>Check:</strong><br>
+Open the page in a browser and review structure, spacing, and readability.
+Clean up indentation and make sure everything makes sense visually.
+</p>
 </details>
 </section>
 
