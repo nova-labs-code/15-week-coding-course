@@ -5,26 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 13: JS DOM Events & Forms</title>
 <style>
-body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333;}
+body { font-family: Arial, sans-serif; margin:20px; line-height:1.6; background:#f5f5f5; color:#333; }
 h1,h2,h3{color:#1e90ff;}
 section {background:#fff; padding:20px; border-radius:8px; margin-bottom:20px; box-shadow:0 0 8px rgba(0,0,0,0.1);}
-details {margin-top:10px;margin-bottom:10px;}
+details {margin-top:10px; margin-bottom:10px;}
 summary {cursor:pointer;font-weight:bold;padding:10px;border-radius:4px;background:#eee;font-size:1.1em;}
 pre {background:#eee;padding:10px;border-radius:6px;overflow-x:auto;}
 code {background:#eee;padding:2px 4px;border-radius:3px;}
 input, button {padding:5px 8px; margin-top:5px;}
+.tip {background:#e8f4ff;padding:10px;border-left:4px solid #1e90ff;margin-top:10px;}
 </style>
 </head>
 <body>
 
 <h1>Week 13: JS DOM Events & Forms – Part 1</h1>
-<p>This week teaches **events, form inputs, and basic interaction**, helping you build dynamic pages that respond to user actions.</p>
+<p>This week teaches <strong>events, form inputs, and basic interaction</strong> to make dynamic pages that respond to user actions.</p>
 
 <!-- Day 1 -->
 <section>
 <details open>
 <summary>Day 1: Click Events Review</summary>
-<p><strong>Learn:</strong> Buttons and elements can react to clicks using <code>onclick</code> or <code>addEventListener</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Buttons and elements can react to clicks using <code>onclick</code> or <code>addEventListener</code>.</p>
 <pre>
 &lt;button id="btn"&gt;Click Me&lt;/button&gt;
 &lt;script&gt;
@@ -33,7 +34,8 @@ document.getElementById("btn").addEventListener("click", function() {
 });
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Create a button that shows your name in an alert on click. <strong>Check:</strong> Browser shows alert when button is clicked.</p>
+<p><strong>Do:</strong> Create a button that shows your name in an alert on click.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>addEventListener</code> instead of <code>onclick</code> for cleaner code.</div>
 </details>
 </section>
 
@@ -41,7 +43,7 @@ document.getElementById("btn").addEventListener("click", function() {
 <section>
 <details>
 <summary>Day 2: Input Fields</summary>
-<p><strong>Learn:</strong> HTML forms allow users to enter data, which JS can access. <strong>See:</strong><br>
+<p><strong>Learn:</strong> HTML inputs allow users to type data that JS can access.</p>
 <pre>
 &lt;input id="nameInput" placeholder="Enter name"&gt;
 &lt;button onclick="showName()"&gt;Submit&lt;/button&gt;
@@ -52,7 +54,8 @@ function showName() {
 }
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Add an input for favorite hobby and display it in an alert. <strong>Check:</strong> Browser shows correct message.</p>
+<p><strong>Do:</strong> Add an input for your favorite hobby and display it in an alert.</p>
+<div class="tip"><strong>Tip:</strong> Always read values with <code>.value</code> for text inputs.</div>
 </details>
 </section>
 
@@ -60,7 +63,7 @@ function showName() {
 <section>
 <details>
 <summary>Day 3: Change & Input Events</summary>
-<p><strong>Learn:</strong> Input fields can react as the user types using <code>oninput</code> or <code>onchange</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Input fields can react live as users type using <code>oninput</code> or <code>onchange</code>.</p>
 <pre>
 &lt;input id="textInput"&gt;
 &lt;p id="display"&gt;&lt;/p&gt;
@@ -70,7 +73,8 @@ document.getElementById("textInput").addEventListener("input", function() {
 });
 &lt;/script&gt;
 </pre>
-<strong>Do:</strong> Display typed text live in a paragraph. <strong>Check:</strong> Browser updates as you type.</p>
+<p><strong>Do:</strong> Display typed text live in a paragraph.</p>
+<div class="tip"><strong>Tip:</strong> <code>input</code> updates instantly; <code>change</code> fires only after leaving the field.</div>
 </details>
 </section>
 
@@ -78,22 +82,26 @@ document.getElementById("textInput").addEventListener("input", function() {
 <section>
 <details>
 <summary>Day 4: Form Validation</summary>
-<p><strong>Learn:</strong> JS can validate input before submitting. <strong>See:</strong><br>
+<p><strong>Learn:</strong> JS can validate input before form submission.</p>
 <pre>
+&lt;form onsubmit="return checkForm()"&gt;
+  &lt;input id="age" type="number"&gt;
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
 function checkForm() {
   let age = document.getElementById("age").value;
-  if(age === "" || age < 0) {
+  if(age === "" || age &lt; 0) {
     alert("Enter a valid age");
     return false;
   }
   return true;
 }
-&lt;form onsubmit="return checkForm()"&gt;
-&lt;input id="age" type="number"&gt;
-&lt;button&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
+&lt;/script&gt;
 </pre>
-<strong>Do:</strong> Create a form asking for username and prevent submission if empty. <strong>Check:</strong> Browser blocks empty input and shows alert.</p>
+<p><strong>Do:</strong> Create a form asking for username and prevent submission if empty.</p>
+<div class="tip"><strong>Tip:</strong> Return <code>false</code> in the validation function to block submission.</div>
 </details>
 </section>
 
@@ -101,13 +109,17 @@ function checkForm() {
 <section>
 <details>
 <summary>Day 5: Mouse Events</summary>
-<p><strong>Learn:</strong> Elements can respond to mouseover, mouseout, mousedown, mouseup. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Elements can respond to <code>mouseover</code>, <code>mouseout</code>, <code>mousedown</code>, <code>mouseup</code>.</p>
 <pre>
+&lt;div id="box" style="width:100px;height:100px;border:1px solid #000"&gt;&lt;/div&gt;
+&lt;script&gt;
 let box = document.getElementById("box");
-box.addEventListener("mouseover", () => box.style.background = "lightblue");
-box.addEventListener("mouseout", () => box.style.background = "white");
+box.addEventListener("mouseover", () =&gt; box.style.background = "lightblue");
+box.addEventListener("mouseout", () =&gt; box.style.background = "white");
+&lt;/script&gt;
 </pre>
-<strong>Do:</strong> Create a div that changes color on hover. <strong>Check:</strong> Browser shows color changes correctly.</p>
+<p><strong>Do:</strong> Create a div that changes color on hover.</p>
+<div class="tip"><strong>Tip:</strong> Mouse events are useful for interactive effects like hover highlights or tooltips.</div>
 </details>
 </section>
 
@@ -115,13 +127,14 @@ box.addEventListener("mouseout", () => box.style.background = "white");
 <section>
 <details>
 <summary>Day 6: Keyboard Events</summary>
-<p><strong>Learn:</strong> Detect key presses with <code>keydown</code> or <code>keyup</code>. <strong>See:</strong><br>
+<p><strong>Learn:</strong> Detect key presses with <code>keydown</code> or <code>keyup</code>.</p>
 <pre>
 document.addEventListener("keydown", function(e) {
   console.log("Key pressed: " + e.key);
 });
 </pre>
-<strong>Do:</strong> Log letters pressed in console. <strong>Check:</strong> Browser console shows keys pressed.</p>
+<p><strong>Do:</strong> Log letters pressed in console.</p>
+<div class="tip"><strong>Tip:</strong> Use <code>e.key</code> to get the actual character, <code>e.code</code> for the physical key.</div>
 </details>
 </section>
 
@@ -129,7 +142,10 @@ document.addEventListener("keydown", function(e) {
 <section>
 <details>
 <summary>Day 7: Review & Interactive Form</summary>
-<p><strong>Learn:</strong> Combine input, events, and validation. <strong>Do:</strong> Build a mini sign-up form asking name and age, display welcome message only if age is valid. <strong>Check:</strong> Browser prevents invalid input and displays correct messages. This completes Week 13.</p>
+<p><strong>Learn:</strong> Combine inputs, events, and validation for interactive pages.</p>
+<p><strong>Do:</strong> Build a mini sign-up form asking name and age, display a welcome message only if age is valid.</p>
+<div class="tip"><strong>Tip:</strong> Combine <code>input.value</code>, event listeners, and validation for full interactivity.</div>
+<p><strong>Check:</strong> Browser prevents invalid input and displays correct messages. This completes Week 13.</p>
 </details>
 </section>
 
